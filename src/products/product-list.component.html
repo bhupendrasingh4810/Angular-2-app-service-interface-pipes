@@ -1,0 +1,126 @@
+<div class="alert alert-primary">
+    <div class="panel-heading">
+        <!--Product List-->
+        <h2> {{ pageTitle }} </h2>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-2">Filter by:</div>
+            <div class="col-md-4">
+                <input type="text" [(ngModel)]="listFilter" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <select name="price" class="form-control">
+                    <option value="">Price</option>
+                    <option value="" *ngFor = "let p of price" >{{p}}</option>
+                </select>
+            </div>
+            <div class="col-md-5">
+                <input type="checkbox" name="checkbox"> In Stock
+            </div>
+            <div class="col-md-3"></div>
+            <div class="col-md-2">
+                <!-- Button to Open the Modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+                Add Product
+              </button>
+            </div>
+
+            <!-- The Modal -->
+            <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title">Add Product Details</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+
+                        <!-- Modal body -->
+                        <div class="modal-body">
+
+                            <form #iproduct="ngForm" (submit)="addProduct(iproduct.value)" novalidate>
+                                <div>
+                                    <legend>Product Name:</legend>
+                                    <input type="text" class="form-control" name="productName" />
+                                </div>
+                                <div>
+                                    <legend>Product Available:</legend>
+                                    <input type="text" class="form-control" name="productAvailable" />
+                                </div>
+                                <div>
+                                    <legend>Product Code:</legend>
+                                    <input type="text" class="form-control" name="productCode" />
+                                </div>
+                                <div>
+                                    <legend>Release Date:</legend>
+                                    <input type="text" class="form-control" name="releaseDate" />
+                                </div>
+                                <div>
+                                    <legend>Description:</legend>
+                                    <input type="text" class="form-control" name="description" />
+                                </div>
+                                <div>
+                                    <legend>Price:</legend>
+                                    <input type="text" class="form-control" name="price" />
+                                </div>
+                                <div>
+                                    <legend>Star Rating:</legend>
+                                    <input type="text" class="form-control" name="starRating" />
+                                </div>
+                                <div>
+                                    <legend>Image Url:</legend>
+                                    <input type="text" class="form-control" name="imageUrl" />
+                                </div>
+                                <input type="submit" class="btn btn-primary" value="Submit" />
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                            </form>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="table table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            <button class="btn btn-primary" (click)="toggleImage()">
+                                <span *ngIf = "!showImage" >Show Image</span>
+                                <span *ngIf = "showImage" >Hide Image</span>
+                            </button>
+                        </th>
+                        <th><b>Product</b></th>
+                        <th><b>Code</b></th>
+                        <th><b>Available</b></th>
+                        <th><b>Price</b></th>
+                        <th><b>5 Star Rating</b></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let product of products | productFilter:listFilter">
+                        <td>
+                            <img *ngIf='showImage' [src]='product.imageUrl' [title]='product.productName' width="50px" height="50px">
+                        </td>
+                        <td>{{ product.productName }}</td>
+                        <td>{{ product.productCode }}</td>
+                        <td>{{ product.productAvailable }}</td>
+                        <td>{{ product.price | currency:'INR':true:'1.2-4'}}</td>
+                        <!--<td>{{product.starRating}}</td>-->
+                        <td>
+                            <!-- <cp-star></cp-star> -->
+                            <!-- <cp-star [rating] = 'product.starRating' 
+                                (notify) = 'onNotify($event)'
+                                 > </cp-star> -->
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

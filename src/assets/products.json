@@ -1,0 +1,57 @@
+[{
+        "_id": 1,
+        "productName": "Shirt",
+        "productAvailable": "In Stock",
+        "productCode": "34r33",
+        "releaseDate": "2/2/1212",
+        "description": "cdk d df  kdfk ",
+        "price": 3434,
+        "starRating": 4,
+        "imageUrl": "../../assets/images/shirt.jpg"
+    },
+    {
+        "_id": 2,
+        "productName": "Blazer",
+        "productAvailable": "In Stock",
+        "productCode": "fh5j7",
+        "releaseDate": "2/2/1212",
+        "description": "cdk d df  kdfk ",
+        "price": 3999,
+        "starRating": 4,
+        "imageUrl": "../../assets/images/blazer.png"
+    },
+    {
+        "_id": 3,
+        "productName": "T-shirt",
+        "productAvailable": "In Stock",
+        "productCode": "34r4r4r",
+        "releaseDate": "2/2/1452",
+        "description": "cdk fdvff  kdfk ",
+        "price": 3434,
+        "starRating": 4,
+        "imageUrl": "../../assets/images/tshirt.jpg"
+    },
+    {
+        "_id": 4,
+        "productName": "Jeans",
+        "productAvailable": "Out of Stock",
+        "productCode": "34ferer",
+        "releaseDate": "2/2/1452",
+        "description": "cdk fdvff  kdfk ",
+        "price": 3434,
+        "starRating": 5,
+        "imageUrl": "../../assets/images/jeans.jpg"
+    },
+    {
+        "_id": 5,
+        "productName": "Tuxedo",
+        "productAvailable": "In Stock",
+        "productCode": "frh5h",
+        "releaseDate": "2/2/1212",
+        "description": "cdk d df  kdfk ",
+        "price": 8999,
+        "starRating": 4,
+        "imageUrl": "../../assets/images/tuxedo.jpg"
+    }
+
+]
