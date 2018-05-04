@@ -1,17 +1,43 @@
-<!-- <div class="container">
 <div class="col-sm-12">
-  <div class="col-sm-3"></div>
-  <div class="col-sm-6">
-  <form action="" method="post">
-    <legend>Name:</legend>
-    <input type="text" name="name" class="form-control" />
-    <legend>Email:</legend>
-    <input type="email" name="email" class="form-control" />
-    <legend>Password:</legend>
-    <input type="password" name="password" class="form-control" /><br/>
-    <input type="submit" name="submit" value="SUBMIT" class="btn btn-block btn-success" />
-  </form>
+  <div class="row">
+      <div class="col-sm-12 alert alert-info">Add Product Details</div>
+    <div class="col-sm-10 col-sm-offset-1">
+      <form [formGroup]="myForm" (submit)="addProduct(myForm.value,myForm.valid)" novalidate>
+        <div>
+          <legend>Product Name:</legend>
+          <input type="text" class="form-control" formControlName="productName" />
+        </div>
+        <div>
+          <legend>Product Available:</legend>
+          <input type="text" class="form-control" formControlName="productAvailable" />
+        </div>
+        <div>
+          <legend>Product Code:</legend>
+          <input type="text" class="form-control" formControlName="productCode" />
+        </div>
+        <div>
+          <legend>Release Date:</legend>
+          <input type="text" class="form-control" formControlName="releaseDate" />
+        </div>
+        <div>
+          <legend>Description:</legend>
+          <input type="text" class="form-control" formControlName="description" />
+        </div>
+        <div>
+          <legend>Price:</legend>
+          <input type="text" class="form-control" formControlName="price" />
+        </div>
+        <div>
+          <legend>Star Rating:</legend>
+          <input type="text" class="form-control" formControlName="starRating" />
+        </div>
+        <div>
+          <legend>Image Url:</legend>
+          <input type="text" class="form-control" formControlName="imageUrl" />
+        </div>
+        <button [disabled]="myForm.invalid" type="submit" class="btn save btn-Primary spin">Add Product</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </form>
+    </div>
   </div>
 </div>
-  <div class="col-sm-3"></div>
-</div> -->
