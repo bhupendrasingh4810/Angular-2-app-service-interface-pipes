@@ -11,13 +11,17 @@ import { ProductListComponent } from '../products/product-list.component';
 import { ProductFilterList } from '../products/product.filter.list';
 import { FormComponent } from './form/form.component';
 import { ProductService } from '../products/product.service';
+import { LoginComponent } from './login/login.component';
+import { AppService } from './app.service';
 
 const appRoutes: Routes = [
-  { path: '', component: ProductListComponent }
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'dashboard', component: ProductListComponent }
 ]
 @NgModule({
   declarations: [
-    AppComponent, ProductListComponent, FormComponent, ProductFilterList
+    AppComponent, ProductListComponent, FormComponent, ProductFilterList, LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +32,7 @@ const appRoutes: Routes = [
     NgbModule.forRoot(),
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [ProductService],
+  providers: [ProductService, AppService],
   bootstrap: [AppComponent],
   entryComponents: [FormComponent]
 })

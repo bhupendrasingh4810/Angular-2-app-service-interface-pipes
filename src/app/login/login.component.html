@@ -1,0 +1,25 @@
+<div class="container-fluid">
+    <div class="col-s12">
+        <div class="row">
+            <div class="col m3"></div>
+            <div class="col m6" style="top:200px;">
+                <h4>Login</h4>
+                <form [formGroup]="myForm" (ngSubmit)="onLogin(this.myForm.value)">
+                    <div class="input-field">
+                        <input type="text" id="email" formControlName="admin_email">
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="input-field" *ngIf="myForm.admin_email.valid">
+                        <input type="password" id="password" formControlName="admin_password">
+                        <label for="password">Password</label>
+                    </div>
+                    <div>
+                        <a href="#" class="">Forgot password?</a>
+                    </div>
+                    <button type="submit" class="waves-effect waves-light btn" [disabled]="!myForm.valid">Login</button>
+                </form>
+            </div>
+            <div class="col m3"></div>
+        </div>
+    </div>
+</div>

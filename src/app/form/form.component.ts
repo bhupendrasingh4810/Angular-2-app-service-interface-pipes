@@ -44,7 +44,7 @@ export class FormComponent implements OnInit {
       $submitButton.addClass("spinner");
 
       this._productService.addProduct(product).subscribe(_ => {
-              this.showChangePasswordSuccess(_.message);
+            //   this.showChangePasswordSuccess();
               this.activeModal.close();
           // } else {
           //     $submitButton.removeClass("spinner");
