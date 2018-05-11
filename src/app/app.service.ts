@@ -5,20 +5,29 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
+import { Router } from '@angular/router';
 @Injectable()
 export class  AppService {
     // private _baseUrl = './assets/products.json';
     private _getUrl = 'http://localhost:3000/get-products';
     private _login = 'http://localhost:3000/login'
-    constructor(private _http: HttpClient) {
+    constructor(private _http: HttpClient,
+    private _router: Router) {
 
     }
 
     login(data) {
-        this._http.post<Response>(this._login, data).map((response: any) => {
-            if(response.status === 'success') {
-                localStorage.setItem(response.data, JSON.stringify(response.data))
+        console.log(data)
+        return this._http.post<Response>(this._login, data).map((response: any) => {
+            console.log(response)
+            if(response.status) {
+                localStorage.setItem('user', JSON.stringify(response.data[0]))
             }
         })
+    }
+
+    logout() {
+         localStorage.removeItem('user')
+        this._router.navigate(['login'])
     }
 }

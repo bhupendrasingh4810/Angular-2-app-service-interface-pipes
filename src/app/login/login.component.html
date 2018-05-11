@@ -6,11 +6,11 @@
                 <h4>Login</h4>
                 <form [formGroup]="myForm" (ngSubmit)="onLogin(this.myForm.value)">
                     <div class="input-field">
-                        <input type="text" id="email" formControlName="admin_email">
+                        <input type="email" id="email" formControlName="admin_email" [(ngModel)]="admin_email">
                         <label for="email">Email</label>
                     </div>
-                    <div class="input-field" *ngIf="myForm.admin_email.valid">
-                        <input type="password" id="password" formControlName="admin_password">
+                    <div class="input-field" *ngIf="myForm['controls'].admin_email.valid">
+                        <input type="password" id="password" formControlName="admin_password" [(ngModel)]="admin_password">
                         <label for="password">Password</label>
                     </div>
                     <div>
